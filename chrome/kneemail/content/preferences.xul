@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!--
+Copyright (c) 2007-2009, Greg Marine
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification,
+are permitted provided that the following conditions are met:
+
+    * Redistributions of source code must retain the above copyright notice,
+    this list of conditions and the following disclaimer.
+    * Redistributions in binary form must reproduce the above copyright notice,
+    this list of conditions and the following disclaimer in the documentation
+    and/or other materials provided with the distribution.
+    * Neither the name of Greg Marine nor the names of the contributors may be
+    used to endorse or promote products derived from this software without
+    specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA,
+OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.
+-->
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+
+<!DOCTYPE prefwindow SYSTEM "chrome://kneemail/locale/preferences.dtd">
+
+<prefwindow
+ id="preferences"
+ title="&preferences;"
+ width="300"
+ height="270"
+ xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+    <prefpane
+      id="general"
+      image="chrome://kneemail/skin/images/general_prefs.png"
+      label="&general;">
+         
+         <preferences>
+         
+             <preference id="pref_foldersort" name="kneemail.folders.sort" type="int" />
+             <preference id="pref_type" name="kneemail.entries.defaulttype" type="int" />
+         
+         </preferences>
+        
+         <hbox>
+            <label value="&folder_sort_label;" />
+            <menulist id="folder_sort" preference="pref_foldersort">
+                <menupopup>
+                    <menuitem label="&alpha;" value="0" />
+                    <menuitem label="&created;" value="1" />
+                    <menuitem label="&weight;" value="2" />
+                </menupopup>
+            </menulist>
+         </hbox>
+
+         <hbox>
+            <label value="&type_label;" />
+            <menulist id="type" preference="pref_type">
+                <menupopup>
+                    <menuitem label="&prayer;" value="0" />
+                    <menuitem label="&praise;" value="1" />
+                    <menuitem label="&general;" value="2" />
+                </menupopup>
+            </menulist>
+         </hbox>
+         
+    </prefpane>
+
+    <!--<prefpane
+      id="kneemail_online"
+      image="chrome://kneemail/skin/images/kneemail_online_prefs.png"
+      label="&kneemail_online;">
+         
+         <preferences>
+         
+            <preference id="pref_kneemail_online_autologin" name="kneemail.online.autologin" type="bool" />
+            <preference id="pref_kneemail_online_username" name="kneemail.online.username" type="string" />
+         
+         </preferences>
+         
+         <checkbox id="kneemail_online_autologin" label="&kneemail_online_autologin;" preference="pref_kneemail_online_autologin" />
+         
+         <vbox>
+            <label value="&kneemail_online_username;" />
+            <textbox id="kneemail_online_username" preference="pref_kneemail_online_username" />
+         </vbox>
+
+    </prefpane>-->
+
+    <prefpane
+      id="updates"
+      image="chrome://kneemail/skin/images/updates_prefs.png"
+      label="&updates;">
+         
+         <preferences>
+         
+             <preference id="pref_checkforupdate" name="kneemail.update.startup" type="bool" />
+         
+         </preferences>
+         
+         <checkbox id="check_for_update" label="&check_for_update;" preference="pref_checkforupdate" />
+
+    </prefpane>
+
+    <prefpane
+      id="database"
+      image="chrome://kneemail/skin/images/database_prefs.png"
+      label="&database;">
+         
+         <preferences>
+         
+             <preference id="pref_kneemaildb" name="kneemail.path.kneemaildb" type="string" />
+         
+         </preferences>
+         
+         <label value="&kneemaildb_label;" />
+         
+         <hbox>
+             <textbox id="kneemaildb" flex="1" preference="pref_kneemaildb" disabled="true" />
+             <toolbarbutton onclick="KneemailDbPathPrompt();" tooltiptext="&kneemaildb_label;" image="chrome://kneemail/skin/images/folder.png" />
+         </hbox>
+
+    </prefpane>
+
+    <prefpane
+      id="backup"
+      image="chrome://kneemail/skin/images/backup_restore.png"
+      label="&backup;">
+         
+         <preferences>
+         
+             <preference id="pref_backupshutdown" name="kneemail.backup.shutdown" type="bool" />
+             <preference id="pref_backuppath" name="kneemail.path.backup" type="string" />
+         
+         </preferences>
+         
+         <checkbox id="backup_shutdown" label="&backup_shutdown;" preference="pref_backupshutdown" />
+
+         <label value="&backup_path_label;" />
+         
+         <hbox>
+             <textbox id="backup_path" flex="1" preference="pref_backuppath" disabled="true" />
+             <toolbarbutton onclick="BackupPathPrompt();" tooltiptext="&backup_path_label;" image="chrome://kneemail/skin/images/folder.png" />
+         </hbox>
+
+    </prefpane>
+
+    <script type="application/x-javascript" src="chrome://kneemail/content/js/preferences.js"/>
+        
+</prefwindow>

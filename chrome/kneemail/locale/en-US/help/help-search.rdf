@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!DOCTYPE rdf:RDF SYSTEM "chrome://branding/locale/brand.dtd" >
+<rdf:RDF xmlns:nc="http://home.netscape.com/NC-rdf#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+
+<rdf:Description about="urn:root">
+  <nc:subheadings>
+    <rdf:Seq>
+      <rdf:li> <rdf:Description ID="welcome" nc:link="index.html" nc:name="Welcome" /> </rdf:li>
+    </rdf:Seq>
+  </nc:subheadings>
+</rdf:Description>
+
+</rdf:RDF>

@@ -1,0 +1,11 @@
+content     branding    branding/content/               contentaccessible=yes
+locale      branding    en-US branding/locale/en-US/
+content     kneemail    kneemail/content/               contentaccessible=yes
+locale      kneemail    en-US kneemail/locale/en-US/
+resource    kneemail    kneemail/modules/
+skin        kneemail    classic/1.0 kneemail/skin/
+content     jslib       jar:jslib.jar!/
+content     help        jar:help.jar!/content/help/     xpcnativewrappers=yes
+
+overlay chrome://mozapps/content/extensions/extensions.xul chrome://kneemail/content/extensions.xul
+overlay chrome://mozapps/content/update/updates.xul chrome://kneemail/content/updates.xul

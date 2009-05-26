@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!--
+Copyright (c) 2007-2009, Greg Marine
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification,
+are permitted provided that the following conditions are met:
+
+    * Redistributions of source code must retain the above copyright notice,
+    this list of conditions and the following disclaimer.
+    * Redistributions in binary form must reproduce the above copyright notice,
+    this list of conditions and the following disclaimer in the documentation
+    and/or other materials provided with the distribution.
+    * Neither the name of Greg Marine nor the names of the contributors may be
+    used to endorse or promote products derived from this software without
+    specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA,
+OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.
+-->
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+
+<!DOCTYPE dialog SYSTEM "chrome://kneemail/locale/compose.dtd">
+
+<dialog
+  id="compose"
+  title="&compose;"
+  width="800"
+  height="600"
+  orient="vertical"
+  buttons="none"
+  onload="OnLoad();"
+  ondialogaccept="OnSave();"
+  xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+  
+    <script type="application/x-javascript" src="chrome://help/content/contextHelp.js"/>
+    <script type="application/x-javascript" src="chrome://kneemail/content/js/compose.js"/>
+    
+    <keyset>
+        <key id="key_save" oncommand="OnSave();" modifiers="control" key="S" />
+    </keyset>
+
+    <hbox>
+      <spacer flex="1" />
+      <toolbarbutton image="chrome://kneemail/skin/images/help.png" onclick="openHelp(strHelpTopic, 'chrome://kneemail/locale/help/help.rdf');" />
+    </hbox>
+
+    <hbox flex="1">
+        
+        <vbox flex="1">
+        
+            <vbox>
+                <label id="subject_label" control="subject" value="&subject_label;" />
+                <textbox id="subject" flex="1" oninput="EnableSave();" spellcheck="true" />
+            </vbox>
+        
+            <vbox flex="1">
+                <label id="entry_label" control="entry" value="&entry_label;" />
+                <textbox id="entry" multiline="true" rows="6" flex="1" oninput="EnableSave();" spellcheck="true" />
+            </vbox>
+            
+            <vbox id="answer_box" flex="1">
+                <label id="answer_label" control="answer" value="&answer_label;" />
+                <textbox id="answer" multiline="true" rows="6" flex="1" oninput="EnableSave();" spellcheck="true" />
+            </vbox>
+                
+            <vbox flex="1">
+                <label id="scripture_label" control="scripture" value="&scripture_label;" />
+                <textbox id="scripture" multiline="true" rows="6" flex="1" oninput="EnableSave();" spellcheck="true" />
+            </vbox>
+            
+        </vbox>
+        
+        <vbox style="width: 250px;">
+            <hbox>
+                <spacer flex="1" />
+                <button id="cmd_add_image" image="chrome://kneemail/skin/images/image_add.png" label="&cmd_add_image;" oncommand="OnCmdAddImage();" />
+                <button id="cmd_delete_image" image="chrome://kneemail/skin/images/image_delete.png" label="&cmd_delete_image;" oncommand="OnCmdDeleteImage();" disabled="true" />
+            </hbox>
+            <vbox id="images_box" flex="1" style="border: solid 1px black; overflow-y: scroll;" />
+        </vbox>
+        
+    </hbox>
+        
+    <hbox>
+        <vbox id="type_box">
+            <label id="type_label" control="type" value="&type_label;" />
+            <menulist id="type" onselect="OnListTypeSelect();">
+                <menupopup>
+                    <menuitem label="&prayer_type_label;" />
+                    <menuitem label="&praise_type_label;" />
+                    <menuitem label="&general_type_label;" />
+                </menupopup>
+            </menulist>
+        </vbox>
+        <vbox>
+            <label id="status_label" control="status" value="&status_label;" />
+            <menulist id="status" onselect="OnListStatusSelect();">
+                <menupopup>
+                    <menuitem label="&active_status_label;"/>
+                    <menuitem label="&answered_status_label;"/>
+                    <menuitem label="&inactive_status_label;"/>
+                </menupopup>
+            </menulist>
+        </vbox>
+
+        <vbox id="created_box">
+            <label id="created_label" control="created" value="&created_date_label;" />
+            <label id="created" />
+        </vbox>
+        
+        <vbox id="modified_box">
+            <label id="modified_label" control="modified" value="&modified_date_label;" />
+            <label id="modified" />
+        </vbox>
+        
+        <vbox id="answered_box">
+            <label id="answered_label" control="answered" value="&answered_date_label;" />
+            <label id="answered" />
+        </vbox>
+
+    </hbox>
+    
+    <hbox>
+        <button id="cmd_prayer_plan" disabled="true" image="chrome://kneemail/skin/images/prayerplan.png" label="&cmd_prayer_plan;" onclick="OnPrayerPlan();" />
+        <spacer flex="1" />
+        <button id="cmd_save" image="chrome://kneemail/skin/images/save.png" label="&cmd_save;" oncommand="OnSave();" disabled="true" />
+        <button id="cmd_close" image="chrome://kneemail/skin/images/exit.png" label="&cmd_close;" oncommand="OnClose();" />
+    </hbox>
+    
+</dialog>

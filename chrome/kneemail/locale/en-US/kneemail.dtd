@@ -1,0 +1,121 @@
+<!--
+Copyright (c) 2007-2009, Greg Marine
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification,
+are permitted provided that the following conditions are met:
+
+    * Redistributions of source code must retain the above copyright notice,
+    this list of conditions and the following disclaimer.
+    * Redistributions in binary form must reproduce the above copyright notice,
+    this list of conditions and the following disclaimer in the documentation
+    and/or other materials provided with the distribution.
+    * Neither the name of Greg Marine nor the names of the contributors may be
+    used to endorse or promote products derived from this software without
+    specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA,
+OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<!-- kneemail Entities -->
+<!ENTITY kneemail "Kneemail Desktop">
+
+<!-- Main Menu -->
+<!ENTITY main_menu_title "Kneemail Desktop Menu">
+<!ENTITY cmd_view_fullscreen "Full Screen">
+<!ENTITY cmd_toggle_sidebar_close "Close Sidebar">
+<!ENTITY cmd_quit "Close Kneemail">
+<!ENTITY cmd_help "Help">
+
+<!-- Headers -->
+<!ENTITY entries "Entries">
+
+<!-- Tabs -->
+<!ENTITY journal_tab " My Kneemail Desktop">
+<!ENTITY online_tab " My Kneemail Online">
+<!ENTITY search_tab " My Kneemail Search">
+
+<!-- Left Sidebar Buttons -->
+<!ENTITY left_sidebar_journal "My Journal">
+<!ENTITY left_sidebar_online "Kneemail Online">
+<!ENTITY left_sidebar_search "Online Search">
+
+<!-- Folder Tree Entities -->
+<!ENTITY folders "Folders">
+
+<!-- Entry Tree Entities -->
+<!ENTITY subject "Subject">
+<!ENTITY created "Created">
+<!ENTITY modified "Modified">
+
+<!-- Entry Labels -->
+<!ENTITY subject_label "Subject:">
+<!ENTITY created_label "Created:">
+<!ENTITY modified_label "Modified:">
+<!ENTITY answered_label "Answered:">
+
+<!-- kneemail Command Entities -->
+<!ENTITY cmd_new_entry "New Entry">
+<!ENTITY cmd_delete_entry "Delete Selected Entries">
+<!ENTITY cmd_edit_entry "Edit Selected Entry">
+<!ENTITY cmd_answered_entry "Mark Selected Entry Answered">
+<!ENTITY cmd_edit_entry_prayer_plan "Prayer Plan Settings">
+<!ENTITY cmd_offline "Work Offline">
+
+<!ENTITY cmd_view_toggle_tree "Toggle Folder Tree">
+
+<!ENTITY cmd_empty_inactive_folder "Empty Inactive Folder">
+<!ENTITY cmd_empty_deleted_folder "Empty Deleted Folder">
+<!ENTITY cmd_new_folder "New Folder">
+<!ENTITY cmd_delete_folder "Delete Selected Folder">
+<!ENTITY cmd_edit_folder "Edit Selected Folder">
+<!ENTITY cmd_print_folder "Print All Entries in Selected Folder">
+<!ENTITY cmd_check_for_update "Check For Update">
+<!ENTITY cmd_print_entry "Print Selected Entry">
+
+<!ENTITY cmd_backup "Backup">
+<!ENTITY cmd_restore "Restore">
+<!ENTITY cmd_compact "Compact Database">
+
+<!ENTITY cmd_prayer_plan "Prayer Plans">
+<!ENTITY cmd_answers_praises "Answered Prayers and Praises">
+<!ENTITY cmd_add_ons "Add-ons">
+<!ENTITY cmd_search "Search">
+<!ENTITY cmd_backup_restore "Backup and Restore">
+<!ENTITY cmd_preferences "Preferences">
+
+<!ENTITY cmd_report_bug "Report Bug">
+<!ENTITY cmd_new_feature "New Feature">
+<!ENTITY cmd_contact "Contact Us">
+<!ENTITY cmd_about "About">
+
+<!ENTITY cmd_update "An update for Kneemail Desktop is available.">
+
+<!-- online Command Entities -->
+<!ENTITY cmd_back "Go Back">
+<!ENTITY cmd_forward "Go Forward">
+<!ENTITY cmd_reload "Reload">
+<!ENTITY cmd_stop "Stop">
+<!ENTITY cmd_home "Go Home">
+<!ENTITY cmd_go "Go">
+<!ENTITY cmd_default "Go in Default Browser">
+<!ENTITY cmd_online_set_home "Set as Home Page">
+<!ENTITY cmd_onlinesearch "Search">
+<!ENTITY online_search "Online Search">
+
+<!ENTITY file_menu "File">
+<!ENTITY view_menu "View">
+<!ENTITY folder_menu "Folder">
+<!ENTITY entry_menu "Entry">
+<!ENTITY tools_menu "Tools">
+<!ENTITY database_menu "Database">
+<!ENTITY help_menu "Help">

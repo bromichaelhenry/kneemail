@@ -1,0 +1,887 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (c) 2007-2009, Greg Marine
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification,
+are permitted provided that the following conditions are met:
+
+    * Redistributions of source code must retain the above copyright notice,
+    this list of conditions and the following disclaimer.
+    * Redistributions in binary form must reproduce the above copyright notice,
+    this list of conditions and the following disclaimer in the documentation
+    and/or other materials provided with the distribution.
+    * Neither the name of Greg Marine nor the names of the contributors may be
+    used to endorse or promote products derived from this software without
+    specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA,
+OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.
+-->
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://kneemail/skin/" type="text/css"?>
+
+<?xml-stylesheet href="chrome://kneemail/skin/css/kneemail.css" type="text/css"?>
+
+<!DOCTYPE window SYSTEM "chrome://kneemail/locale/kneemail.dtd">
+
+<window
+ id="kneemail"
+ windowtype="Kneemail"
+ title="&kneemail;"
+ width="800"
+ height="600"
+ persist="sizemode width height"
+ orient="vertical"
+ onload="OnLoad();"
+ onunload="OnUnload();"
+ xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+    <script type="application/x-javascript" src="chrome://global/content/nsUserSettings.js" />
+    <script type="application/x-javascript" src="chrome://global/content/strres.js" />
+    <script type="application/x-javascript" src="chrome://global/content/printUtils.js"/>
+    <script type="application/x-javascript" src="chrome://global/content/nsDragAndDrop.js"/>
+    <script type="application/x-javascript" src="chrome://global/content/nsTransferable.js"/>
+    <script type="application/x-javascript" src="chrome://help/content/contextHelp.js"/>
+    <script type="application/x-javascript" src="chrome://kneemail/content/js/kneemail.js"/>
+
+    <commandset id="commands">
+        
+        <!-- File Commands -->
+        <command id="cmd_toggle_sidebar" oncommand="OnCmdToggleSidebar();" />
+        <command id="cmd_offline" oncommand="OnCmdOffline();" />
+        <command id="cmd_quit" oncommand="OnCmdQuit();" />
+        
+        <!-- View Commands -->
+        <command id="cmd_view_toggle_tree" oncommand="OnCmdToggleTree();" />
+        <command id="cmd_view_fullscreen" oncommand="OnCmdViewFullScreen();" />
+
+        <!-- Folder Commands -->
+        <command id="cmd_empty_inactive_folder" oncommand="OnCmdEmptyInactiveFolder();" />
+        <command id="cmd_empty_deleted_folder" oncommand="OnCmdEmptyDeletedFolder();" />
+        <command id="cmd_new_folder" oncommand="OnCmdNewFolder();" />
+        <command id="cmd_delete_folder" oncommand="OnCmdDeleteFolder();" disabled="true" />
+        <command id="cmd_edit_folder" oncommand="OnCmdEditFolder();" disabled="true" />
+        <command id="cmd_print_folder" oncommand="OnCmdPrintFolder();" disabled="true" />
+
+        <!-- Entry Commands -->
+        <command id="cmd_new_entry" oncommand="OnCmdNewEntry();" disabled="true" />
+        <command id="cmd_delete_entry" oncommand="OnCmdDeleteEntry();" disabled="true" />
+        <command id="cmd_edit_entry" oncommand="OnCmdEditEntry();" disabled="true" />
+        <command id="cmd_answered_entry" oncommand="OnCmdAnsweredEntry();" disabled="true" />
+        <command id="cmd_edit_entry_prayer_plan" oncommand="OnCmdEditEntryPrayerPlan();" disabled="true" />
+        <command id="cmd_print_entry" oncommand="OnCmdPrintEntry();" disabled="true" />
+        
+        <!-- Tools Commands -->
+        <command id="cmd_backup" oncommand="OnCmdBackup();" />
+        <command id="cmd_restore" oncommand="OnCmdRestore();" />
+        <command id="cmd_compact" oncommand="OnCmdCompact();" />
+        <command id="cmd_edit_prayer_plans" oncommand="OnCmdEditPrayerPlans();" />
+        <command id="cmd_answers_praises" oncommand="OnCmdAnswersPraises();" />
+        <command id="cmd_search" oncommand="OnCmdSearch();" />
+        <command id="cmd_check_for_update" oncommand="OnCmdCheckForUpdate();" />
+        <command id="cmd_add_ons" oncommand="OnCmdAddOns();" />
+        <command id="cmd_preferences" oncommand="OnCmdPreferences();" />
+        <command id="cmd_prayer_plan" oncommand="OnCmdPrayerPlan();" />
+        
+        <!-- Help Commands -->
+        <command id="cmd_help" oncommand="OnCmdHelp();" />
+        <command id="cmd_contact" oncommand="OnCmdContact();" />
+        <command id="cmd_about" oncommand="OnCmdAbout();" />
+        
+        <!-- Update Command -->
+        <command id="cmd_update" oncommand="OnCmdUpdate();" />
+        
+        <!-- Online Search Commands -->
+        <command id="cmd_onlinesearch" oncommand="OnCmdOnlineSearch();" />
+        
+        <!-- Online Browser Commands -->
+        <command id="cmd_back" oncommand="OnCmdGoBack();" disabled="true" />
+        <command id="cmd_forward" oncommand="OnCmdGoForward();" disabled="true" />
+        <command id="cmd_reload" oncommand="OnCmdReload();" disabled="true" />
+        <command id="cmd_stop" oncommand="OnCmdStop();" disabled="true" />
+        <command id="cmd_home" oncommand="OnCmdGoHome();" />
+        <command id="cmd_go" oncommand="OnCmdGo();" />
+        <command id="cmd_default" oncommand="OnCmdDefaultBrowser();" />
+        <command id="cmd_online_set_home" oncommand="OnCmdOnlineSetHome();" />
+        
+        <!-- Search Browser Commands -->
+        <command id="cmd_search_back" oncommand="OnCmdSearchGoBack();" disabled="true" />
+        <command id="cmd_search_forward" oncommand="OnCmdSearchGoForward();" disabled="true" />
+        <command id="cmd_search_reload" oncommand="OnCmdSearchReload();" disabled="true" />
+        <command id="cmd_search_stop" oncommand="OnCmdSearchStop();" disabled="true" />
+
+         <!-- Misc. -->
+         <command id="cmd_kneemail_online" oncommand="OnCmdKneemailOnline();" />
+
+    </commandset>
+
+    <keyset id="shortcut_keys">
+        
+        <!-- Application Keys -->
+        <key id="key_offline" command="cmd_offline" modifiers="control" key="O" />
+        <key id="key_quit" command="cmd_quit" modifiers="control" key="Q" />
+        
+        <!-- View Keys -->
+        <key id="key_view_fullscreen" command="cmd_view_fullscreen" keycode="VK_F11" />
+        <key id="key_toggle_sidebar" command="cmd_toggle_sidebar" modifiers="control" key="S" />
+    
+        <!-- Folder Keys -->
+        <key id="key_new_folder" command="cmd_new_folder" modifiers="shift" key="N" />
+        <key id="key_delete_folder" command="cmd_delete_folder" modifiers="shift" key="D" />
+        <key id="key_edit_folder" command="cmd_edit_folder" modifiers="shift" key="E" />
+        <key id="key_print_folder" command="cmd_print_folder" modifiers="shift" key="P" />
+        <key id="key_empty_inactive_folder" command="cmd_print_folder" modifiers="alt" key="I" />
+        <key id="key_empty_deleted_folder" command="cmd_print_folder" modifiers="alt" key="D" />
+
+        <!-- Entry Keys -->
+        <key id="key_new_entry" command="cmd_new_entry" modifiers="control" key="N" />
+        <key id="key_delete_entry" command="cmd_delete_entry" modifiers="control" key="D" />
+        <key id="key_edit_entry" command="cmd_edit_entry" modifiers="control" key="E" />
+        <key id="key_answered_entry" command="cmd_answered_entry" modifiers="control" key="A" />
+        <key id="key_print_entry" command="cmd_print_entry" modifiers="control" key="P" />
+        
+        <!-- Tools Keys -->
+        <key id="key_search" command="cmd_search" modifiers="control" key="F" />
+        
+        <!-- Help Keys -->
+        <key id="key_help" command="cmd_help" keycode="VK_F1" />
+
+        <!-- Browser Keys -->
+        <key id="key_back" command="cmd_back" modifiers="alt" keycode="VK_LEFT" />
+        <key id="key_forward" command="cmd_forward" modifiers="alt" keycode="VK_RIGHT" />
+        <key id="key_reload" command="cmd_back" modifiers="control" keycode="R" />
+        <key id="key_stop" command="cmd_stop" keycode="VK_ESCAPE" />
+        <key id="key_home" command="cmd_home" modifiers="control" keycode="H" />
+
+    </keyset>
+
+    <popupset id="context_menus">
+        
+        <popup id="inactive_context_menu">
+
+            <menuitem
+             id="cmd_empty_inactive_folder"
+             command="cmd_empty_inactive_folder"
+             label="&cmd_empty_inactive_folder;"
+             class="menuitem-iconic cmd_empty_inactive_folder" />
+
+        </popup>
+    
+        <popup id="deleted_context_menu">
+
+            <menuitem
+             id="cmd_empty_deleted_folder"
+             command="cmd_empty_deleted_folder"
+             label="&cmd_empty_deleted_folder;"
+             class="menuitem-iconic cmd_empty_deleted_folder" />
+
+        </popup>
+    
+        <popup id="folder_tree_context_menu">
+
+            <menuitem
+             id="cmd_folder_menu_new_folder"
+             command="cmd_new_folder"
+             key="key_new_folder"
+             label="&cmd_new_folder;"
+             class="menuitem-iconic cmd_new_folder" />
+
+            <menuitem
+             id="cmd_folder_menu_delete_folder"
+             command="cmd_delete_folder"
+             key="key_delete_folder"
+             label="&cmd_delete_folder;"
+             class="menuitem-iconic cmd_delete_folder" />
+
+            <menuitem
+             id="cmd_folder_menu_edit_folder"
+             command="cmd_edit_folder"
+             key="key_edit_folder"
+             label="&cmd_edit_folder;"
+             class="menuitem-iconic cmd_edit_folder" />
+
+            <menuseparator />
+            
+            <menuitem
+             id="cmd_folder_print_folder"
+             command="cmd_print_folder"
+             key="key_print_folder"
+             label="&cmd_print_folder;"
+             class="menuitem-iconic cmd_print_folder" />
+
+        </popup>
+    
+        <popup id="entry_tree_context_menu">
+
+            <menuitem
+             id="cmd_entry_menu_new_entry"
+             command="cmd_new_entry"
+             key="key_new_entry"
+             label="&cmd_new_entry;"
+             class="menuitem-iconic cmd_new_entry" />
+
+            <menuitem
+             id="cmd_entry_menu_delete_entry"
+             command="cmd_delete_entry"
+             key="key_delete_entry"
+             label="&cmd_delete_entry;"
+             class="menuitem-iconic cmd_delete_entry" />
+
+            <menuitem
+             id="cmd_entry_menu_edit_entry"
+             command="cmd_edit_entry"
+             key="key_edit_entry"
+             label="&cmd_edit_entry;"
+             class="menuitem-iconic cmd_edit_entry" />
+
+            <menuitem
+             id="cmd_entry_menu_answered_entry"
+             command="cmd_answered_entry"
+             key="key_answered_entry"
+             label="&cmd_answered_entry;"
+             class="menuitem-iconic cmd_answered_entry" />
+            
+            <menuseparator />
+            
+            <menuitem
+             id="cmd_entry_menu_print_entry"
+             command="cmd_print_entry"
+             key="key_print_entry"
+             label="&cmd_print_entry;"
+             class="menuitem-iconic cmd_print_entry" />
+
+            <menuitem
+             id="cmd_entry_menu_print_folder"
+             command="cmd_print_folder"
+             key="key_print_folder"
+             label="&cmd_print_folder;"
+             class="menuitem-iconic cmd_print_folder" />
+
+            <menuseparator />
+            
+            <menuitem
+             id="cmd_entry_menu_prayer_plan"
+             command="cmd_edit_entry_prayer_plan"
+             label="&cmd_edit_entry_prayer_plan;"
+             class="menuitem-iconic cmd_edit_entry_prayer_plan" />
+
+        </popup>
+        
+        <popup id="online_context_menu">
+
+            <menuitem
+             id="cmd_online_context_menu_back"
+             command="cmd_back"
+             label="&cmd_back;"
+             class="menuitem-iconic cmd_back" />
+
+            <menuitem
+             id="cmd_online_context_menu_forward"
+             command="cmd_forward"
+             label="&cmd_forward;"
+             class="menuitem-iconic cmd_forward" />
+
+            <menuitem
+             id="cmd_online_context_menu_reload"
+             command="cmd_reload"
+             label="&cmd_reload;"
+             class="menuitem-iconic cmd_reload" />
+
+            <menuitem
+             id="cmd_online_context_menu_stop"
+             command="cmd_stop"
+             label="&cmd_stop;"
+             class="menuitem-iconic cmd_stop" />
+
+            <menuseparator />
+            
+            <menuitem
+             id="cmd_online_context_menu_set_home"
+             command="cmd_online_set_home"
+             label="&cmd_online_set_home;"
+             class="menuitem-iconic cmd_online_set_home" />
+
+        </popup>
+        
+        <panel id="autocomplete" type="autocomplete-richlistbox" noautofocus="true" />
+
+        <tooltip id="open_close_sidebar_tooltip" noautohide="true" onpopupshown="OpenCloseSidebarTooltipShown();" onpopuphidden="ResetHelp();" class="tooltip_frame">
+            <description class="tooltip">Click this button to open and close the left sidebar.
+
+<image src="chrome://kneemail/skin/images/help.png" style="vertical-align: middle;" />  Press F1 For More Information.</description>
+        </tooltip>
+
+        <tooltip id="new_folder_tooltip" noautohide="true" onpopupshown="NewFolderTooltipShown();" onpopuphidden="ResetHelp();" class="tooltip_frame">
+            <description class="tooltip">Click this button to create a new folder.
+
+<image src="chrome://kneemail/skin/images/help.png" style="vertical-align: middle;" />  Press F1 For More Information.</description>
+        </tooltip>
+
+        <tooltip id="delete_folder_tooltip" noautohide="true" onpopupshown="DeleteFolderTooltipShown();" onpopuphidden="ResetHelp();" class="tooltip_frame">
+            <description class="tooltip">Click this button to delete the selected folder.
+
+<image src="chrome://kneemail/skin/images/help.png" style="vertical-align: middle;" />  Press F1 For More Information.</description>
+        </tooltip>
+
+        <tooltip id="edit_folder_tooltip" noautohide="true" onpopupshown="EditFolderTooltipShown();" onpopuphidden="ResetHelp();" class="tooltip_frame">
+            <description class="tooltip">Click this button to edit the selected folder.
+
+<image src="chrome://kneemail/skin/images/help.png" style="vertical-align: middle;" />  Press F1 For More Information.</description>
+        </tooltip>
+
+        <tooltip id="new_entry_tooltip" noautohide="true" onpopupshown="NewEntryTooltipShown();" onpopuphidden="ResetHelp();" class="tooltip_frame">
+            <description class="tooltip">Click this button to start composing a new entry.
+
+<image src="chrome://kneemail/skin/images/help.png" style="vertical-align: middle;" />  Press F1 For More Information.</description>
+        </tooltip>
+
+        <tooltip id="delete_entry_tooltip" noautohide="true" onpopupshown="DeleteEntryTooltipShown();" onpopuphidden="ResetHelp();" class="tooltip_frame">
+            <description class="tooltip">Click this button to delete the selected entries.
+
+<image src="chrome://kneemail/skin/images/help.png" style="vertical-align: middle;" />  Press F1 For More Information.</description>
+        </tooltip>
+
+        <tooltip id="answered_entry_tooltip" noautohide="true" onpopupshown="AnsweredEntryTooltipShown();" onpopuphidden="ResetHelp();" class="tooltip_frame">
+            <description class="tooltip">Click this button to mark the selected entry as being answered.
+
+<image src="chrome://kneemail/skin/images/help.png" style="vertical-align: middle;" />  Press F1 For More Information.</description>
+        </tooltip>
+
+        <tooltip id="prayerplan_entry_tooltip" noautohide="true" onpopupshown="PrayerPlanEntryTooltipShown();" onpopuphidden="ResetHelp();" class="tooltip_frame">
+            <description class="tooltip">Click this button to set the selected entry's Prayer Plan settings.
+
+<image src="chrome://kneemail/skin/images/help.png" style="vertical-align: middle;" />  Press F1 For More Information.</description>
+        </tooltip>
+
+        <tooltip id="prayerplans_tooltip" noautohide="true" onpopupshown="PrayerPlansTooltipShown();" onpopuphidden="ResetHelp();" class="tooltip_frame">
+            <description class="tooltip">Click this button to launch your Prayer Plans.
+
+<image src="chrome://kneemail/skin/images/help.png" style="vertical-align: middle;" />  Press F1 For More Information.</description>
+        </tooltip>
+
+        <tooltip id="search_tooltip" noautohide="true" onpopupshown="SearchTooltipShown();" onpopuphidden="ResetHelp();" class="tooltip_frame">
+            <description class="tooltip">Click this button to search through your entries.
+
+<image src="chrome://kneemail/skin/images/help.png" style="vertical-align: middle;" />  Press F1 For More Information.</description>
+        </tooltip>
+    </popupset>
+
+    <hbox id="menubars">
+        <menubar id="file_menubar">
+            <menu label="&file_menu;">
+             
+                <menupopup id="file_menu">
+    
+                    <!--<menuitem
+                     id="file_menu_offline"
+                     autocheck="false"
+                     command="cmd_offline"
+                     key="key_offline"
+                     label="&cmd_offline;"
+                     type="checkbox"
+                     checked="false" />-->
+    
+                    <menuitem
+                     id="file_menu_quit"
+                     command="cmd_quit"
+                     key="key_quit"
+                     label="&cmd_quit;"
+                     class="menuitem-iconic cmd_quit" />
+    
+                </menupopup>
+             
+            </menu>
+        </menubar>
+        
+        <menubar id="view_menubar">
+            <menu label="&view_menu;">
+             
+                <menupopup id="view_menu">
+    
+                    <menuitem
+                     id="view_menu_toggle_sidebar"
+                     command="cmd_toggle_sidebar"
+                     key="key_toggle_sidebar"
+                     label="&cmd_toggle_sidebar_close;"
+                     class="menuitem-iconic cmd_toggle_sidebar_close" />
+    
+                    <menuitem
+                     id="view_menu_fullscreen"
+                     command="cmd_view_fullscreen"
+                     key="key_view_fullscreen"
+                     label="&cmd_view_fullscreen;"
+                     checked="false" />
+    
+                </menupopup>
+             
+            </menu>
+        </menubar>
+    
+        <menubar id="journal_menubar">
+            
+            <menu label="&folder_menu;">
+             
+                <menupopup id="folder_menu">
+    
+                    <menuitem
+                     id="folder_menu_new_folder"
+                     command="cmd_new_folder"
+                     key="key_new_folder"
+                     label="&cmd_new_folder;"
+                     class="menuitem-iconic cmd_new_folder" />
+    
+                    <menuitem
+                     id="folder_menu_delete_folder"
+                     command="cmd_delete_folder"
+                     key="key_delete_folder"
+                     label="&cmd_delete_folder;"
+                     class="menuitem-iconic cmd_delete_folder" />
+    
+                    <menuitem
+                     id="folder_menu_edit_folder"
+                     command="cmd_edit_folder"
+                     key="key_edit_folder"
+                     label="&cmd_edit_folder;"
+                     class="menuitem-iconic cmd_edit_folder" />
+    
+                    <menuitem
+                     id="folder_menu_empty_inactive_folder"
+                     command="cmd_empty_inactive_folder"
+                     key="key_empty_inactive_folder"
+                     label="&cmd_empty_inactive_folder;"
+                     class="menuitem-iconic cmd_empty_inactive_folder" />
+    
+                    <menuitem
+                     id="folder_menu_empty_deleted_folder"
+                     command="cmd_empty_deleted_folder"
+                     key="key_empty_deleted_folder"
+                     label="&cmd_empty_deleted_folder;"
+                     class="menuitem-iconic cmd_empty_deleted_folder" />
+    
+                   <menuitem
+                    id="folder_menu_print_folder"
+                    command="cmd_print_folder"
+                     key="key_print_folder"
+                    label="&cmd_print_folder;"
+                    class="menuitem-iconic cmd_print_folder" />
+    
+                </menupopup>
+             
+            </menu>
+        
+            <menu label="&entry_menu;">
+             
+                <menupopup id="entry_menu">
+    
+                    <menuitem
+                     id="entry_menu_new_entry"
+                     command="cmd_new_entry"
+                     key="key_new_entry"
+                     label="&cmd_new_entry;"
+                     class="menuitem-iconic cmd_new_entry" />
+    
+                    <menuitem
+                     id="entry_menu_delete_entry"
+                     command="cmd_delete_entry"
+                     key="key_delete_entry"
+                     label="&cmd_delete_entry;"
+                     class="menuitem-iconic cmd_delete_entry" />
+    
+                    <menuitem
+                     id="entry_menu_edit_entry"
+                     command="cmd_edit_entry"
+                     key="key_edit_entry"
+                     label="&cmd_edit_entry;"
+                     class="menuitem-iconic cmd_edit_entry" />
+    
+                    <menuitem
+                     id="entry_menu_answered_entry"
+                     command="cmd_answered_entry"
+                     key="key_answered_entry"
+                     label="&cmd_answered_entry;"
+                     class="menuitem-iconic cmd_answered_entry" />
+    
+                    <menuitem
+                     id="entry_menu_entry_prayer_plan"
+                     command="cmd_edit_entry_prayer_plan"
+                     label="&cmd_edit_entry_prayer_plan;"
+                     class="menuitem-iconic cmd_edit_entry_prayer_plan" />
+    
+                    <menuitem
+                     id="entry_menu_print_entry"
+                     command="cmd_print_entry"
+                     key="key_print_entry"
+                     label="&cmd_print_entry;"
+                     class="menuitem-iconic cmd_print_entry" />
+        
+                </menupopup>
+             
+            </menu>
+            
+        </menubar>
+        
+        <menubar id="online_menubar" hidden="true" />
+    
+        <menubar id="tools_menubar">
+            <menu label="&tools_menu;">
+             
+                <menupopup id="tools_menu">
+                    
+                    <menu
+                     id="database_menu"
+                     label="&database_menu;"
+                     class="menu-iconic database_menu">
+                        
+                        <menupopup id="database_sub_menu">
+                            
+                            <menuitem
+                             id="tools_menu_backup"
+                             command="cmd_backup"
+                             label="&cmd_backup;"
+                             class="menuitem-iconic cmd_backup" />
+            
+                            <menuitem
+                             id="tools_menu_restore"
+                             command="cmd_restore"
+                             label="&cmd_restore;"
+                             class="menuitem-iconic cmd_restore" />
+            
+                            <menuitem
+                             id="tools_menu_compact"
+                             command="cmd_compact"
+                             label="&cmd_compact;"
+                             class="menuitem-iconic cmd_compact" />
+            
+                        </menupopup>
+                        
+                    </menu>
+            
+                    <menuitem
+                     id="tools_menu_answers_praises"
+                     command="cmd_answers_praises"
+                     label="&cmd_answers_praises;"
+                     class="menuitem-iconic cmd_answers_praises" />
+            
+                    <menuseparator />
+            
+                    <menuitem
+                     id="tools_menu_check_for_update"
+                     command="cmd_check_for_update"
+                     label="&cmd_check_for_update;"
+                     class="menuitem-iconic cmd_check_for_update" />
+                    
+                    <!--<menuitem
+                     id="tools_menu_add_ons"
+                     command="cmd_add_ons"
+                     label="&cmd_add_ons;"
+                     class="menuitem-iconic cmd_add_ons" />-->
+            
+                    <menuseparator />
+            
+                    <menuitem
+                     id="tools_menu_preferences"
+                     command="cmd_preferences"
+                     label="&cmd_preferences;"
+                     class="menuitem-iconic cmd_preferences" />
+            
+                </menupopup>
+             
+            </menu>
+        </menubar>
+    
+        <menubar id="help_menubar">
+            <menu label="&help_menu;">
+             
+                <menupopup id="help_menu">
+    
+                    <menuitem
+                     id="help_menu_help"
+                     command="cmd_help"
+                     key="key_help"
+                     label="&cmd_help;"
+                     class="menuitem-iconic cmd_help" />
+                    
+                    <menuitem
+                     id="help_menu_contact"
+                     command="cmd_contact"
+                     label="&cmd_contact;"
+                     class="menuitem-iconic cmd_contact" />
+                     
+                    <menuitem
+                     id="help_menu_about"
+                     command="cmd_about"
+                     label="&cmd_about;"
+                     class="menuitem-iconic cmd_about" />
+    
+                </menupopup>
+             
+            </menu>
+        </menubar>
+        
+        <spacer flex="1" />
+        
+        <toolbarbutton id="menubar_update" command="cmd_update" tooltiptext="&cmd_update;" class="cmd_update" hidden="true" />
+        
+        <!--<toolbarbutton id="menubar_throbber" class="throbber_stopped" disabled="true" />-->
+    </hbox>
+
+    <toolbox id="toolbars" orient="horizontal">
+
+        <toolbar hidden="true" />
+
+        <toolbar id="sidebar_toolbar" grippyhidden="true">
+        
+            <toolbarbutton id="sidebar_toolbar_toggle_sidebar" command="cmd_toggle_sidebar" tooltip="open_close_sidebar_tooltip" class="cmd_toggle_sidebar_close" />
+
+            <toolbarseparator />
+
+        </toolbar>
+        
+        <toolbar id="journal_toolbar" grippyhidden="true">
+        
+            <toolbarbutton id="journal_toolbar_new_folder" command="cmd_new_folder" tooltip="new_folder_tooltip" class="cmd_new_folder" />
+            <toolbarbutton id="journal_toolbar_delete_folder" command="cmd_delete_folder" tooltip="delete_folder_tooltip" class="cmd_delete_folder" />
+            <toolbarbutton id="journal_toolbar_edit_folder" command="cmd_edit_folder" tooltip="edit_folder_tooltip" class="cmd_edit_folder" />
+
+            <toolbarseparator />
+
+            <toolbarbutton id="journal_toolbar_new_entry" command="cmd_new_entry" tooltip="new_entry_tooltip" class="cmd_new_entry" />
+            <toolbarbutton id="journal_toolbar_delete_entry" command="cmd_delete_entry" tooltip="delete_entry_tooltip" class="cmd_delete_entry" />
+            <toolbarbutton id="journal_toolbar_edit_entry" command="cmd_edit_entry" tooltiptext="&cmd_edit_entry;" class="cmd_edit_entry" />
+            <toolbarbutton id="journal_toolbar_answered_entry" command="cmd_answered_entry" tooltip="answered_entry_tooltip" class="cmd_answered_entry" />
+            <toolbarbutton id="journal_toolbar_entry_prayer_plan" command="cmd_edit_entry_prayer_plan" tooltip="prayerplan_entry_tooltip" class="cmd_edit_entry_prayer_plan" />
+            <toolbarbutton id="journal_toolbar_print_entry" command="cmd_print_entry" tooltiptext="&cmd_print_entry;" class="cmd_print_entry" />
+
+            <toolbarseparator />
+
+            <toolbarbutton oncommand="LaunchPrayerPlan(0);" type="menu-button" tooltip="prayerplans_tooltip" class="cmd_prayer_plan">
+               <menupopup id="journal_toolbar_prayer_plan_menu" />
+            </toolbarbutton>
+            <toolbarbutton id="journal_toolbar_search" command="cmd_search" tooltip="search_tooltip" class="cmd_search" />
+       
+        </toolbar>
+        
+        <toolbar id="online_toolbar" grippyhidden="true" hidden="true">
+        
+            <toolbarbutton id="online_toolbar_back" command="cmd_back" tooltiptext="&cmd_back;" class="cmd_back" disabled="true" />
+            <toolbarbutton id="online_toolbar_forward" command="cmd_forward" tooltiptext="&cmd_forward;" class="cmd_forward" disabled="true" />
+            <toolbarbutton id="online_toolbar_reload" command="cmd_reload" tooltiptext="&cmd_reload;" class="cmd_reload" disabled="true" />
+            <toolbarbutton id="online_toolbar_stop" command="cmd_stop" tooltiptext="&cmd_stop;" class="cmd_stop" disabled="true" />
+            <toolbarbutton id="online_toolbar_home" command="cmd_home" tooltiptext="&cmd_home;" class="cmd_home" />
+
+        </toolbar>
+        
+        <!--<toolbar id="search_toolbar" grippyhidden="true" hidden="true">
+        
+            <toolbarbutton id="search_toolbar_back" command="cmd_search_back" tooltiptext="&cmd_back;" class="cmd_back" disabled="true" />
+            <toolbarbutton id="search_toolbar_forward" command="cmd_search_forward" tooltiptext="&cmd_forward;" class="cmd_forward" disabled="true" />
+            <toolbarbutton id="search_toolbar_reload" command="cmd_search_reload" tooltiptext="&cmd_reload;" class="cmd_reload" disabled="true" />
+            <toolbarbutton id="search_toolbar_stop" command="cmd_search_stop" tooltiptext="&cmd_stop;" class="cmd_stop" disabled="true" />
+
+        </toolbar>-->
+        
+        <toolbar id="tools_toolbar" flex="1" grippyhidden="true" />
+        
+    </toolbox>
+
+    <hbox flex="1">
+        
+        <vbox id="left" width="200" persist="width">
+            
+            <toolbarbutton id="left_sidebar_header" image="chrome://kneemail/skin/images/journal.png" label="&left_sidebar_journal;" class="side_panel_button" />
+
+            <deck id="left_deck" flex="1">
+        
+                <tree
+                 id="folder_tree"
+                 flex="1"
+                 style="margin: 0px;"
+                 hidecolumnpicker="true"
+                 onselect="OnFolderTreeSelect();"
+                 ondblclick="OnFolderTreeDblClick();"
+                 ondragover="nsDragAndDrop.dragOver(event, folderDropObserver);"
+                 ondragdrop="nsDragAndDrop.drop(event, folderDropObserver);">
+        
+                    <treecols>
+                       <treecol id="folders" hideheader="true" primary="true" flex="1" />
+                    </treecols>
+        
+                    <treechildren id="folder_children" class="folder_tree" />
+                 
+                </tree>
+
+                <description style="text-align: justify;" class="side_panel">
+                    Kneemail Online is the World Wide Web's extension of Kneemail Desktop. It has been integrated to make it easy to get connect with other Kneemail users. Kneemail Online is a social, prayer networking Website.
+                </description>
+                
+                <!--<vbox class="side_panel">
+                    <menu id="online_search_toolbar" class="menu-iconic">
+                        <menupopup id="online_search_menu" />
+                    </menu>
+                    
+                    <hbox>
+                        <textbox id="search_text" flex="1" onfocus="OnOnlineSearchFocus();" onblur="OnOnlineSearchBlur();" onkeypress="OnOnlineSearchKeyPress(event);" class="search_text_watermark" />
+                        <toolbarbutton id="online_search_toolbar_search" command="cmd_onlinesearch" tooltiptext="&cmd_onlinesearch;" class="cmd_onlinesearch" />
+                    </hbox>
+                    
+                    <hbox>
+                        <spacer flex="1" />
+                        <toolbarbutton image="chrome://kneemail/skin/images/help.png" onclick="openHelp('online_search', 'chrome://kneemail/locale/help/help.rdf');" />
+                    </hbox>
+                    
+                    <description id="search_description" style="text-align: justify;" />
+                </vbox>-->
+            </deck>
+
+            <!--<vbox id="kneemail_buttons">
+                <toolbarbutton id="kneemail_journal_button" image="chrome://kneemail/skin/images/journal.png" label="&left_sidebar_journal;" class="side_panel_button_selected" oncommand="OnCmdShowJournal();" />
+                <toolbarbutton id="kneemail_online_button" image="chrome://kneemail/skin/images/kneemailonline.png" label="&left_sidebar_online;" class="side_panel_button" oncommand="OnCmdShowOnline();" />
+            </vbox>-->
+            
+        </vbox>
+        
+        <splitter id="sidebar_splitter" />
+        
+        <vbox
+         id="box_entries"
+         persist="width"
+         flex="3">
+    
+            <description id="right_header" crop="end" value="&entries;" class="header" />
+
+            <deck id="right_deck" flex="1">
+                
+                <vbox>
+                    <tree
+                     id="entry_tree"
+                     hidden="true"
+                     persist="height"
+                     hidecolumnpicker="true"
+                     flex="1"
+                     style="margin: 0px;"
+                     context="entry_tree_context_menu"
+                     onselect="OnEntryTreeSelect();"
+                     ondblclick="OnEntryTreeDblClick();"
+                     ondraggesture="nsDragAndDrop.startDrag(event, entryObserver);">
+            
+                        <treecols>
+        
+                           <treecol
+                            id="type"
+                            src="chrome://kneemail/skin/images/entry.png"
+                            class="treecol-image"
+                            style="width: 24px;" />
+                           
+                           <treecol
+                            id="subject"
+                            label="&subject;"
+                            onclick="OnClickEntrySortSubject();"
+                            flex="3">
+                                
+                                &subject;
+                                
+                                <image id="sort_subject" />
+                            
+                           </treecol>
+                           
+                           <treecol
+                            id="created"
+                            label="&created;"
+                            onclick="OnClickEntrySortCreated();"
+                            flex="1">
+                            
+                                &created;
+                            
+                                <image id="sort_created" />
+
+                           </treecol>
+                           
+                           <treecol
+                            id="modified"
+                            label="&modified;"
+                            onclick="OnClickEntrySortModified();"
+                            flex="1">
+                            
+                                &modified;
+                            
+                                <image id="sort_modified" />
+                            
+                           </treecol>
+                           
+                        </treecols>
+            
+                        <treechildren
+                         id="entry_children"
+                         class="entry_tree" />
+            
+                    </tree>
+
+                    <splitter id="entry_splitter" hidden="true" />
+                    
+                    <vbox id="entry_box" persist="height" flex="1">
+                        
+                        <hbox id="preview_subject" hidden="true">
+                            <description id="subject_header" crop="end" flex="1" class="header" />
+                            <!--<label value="&subject_label;" style="font-weight: bold;" />
+                            <label id="subject_label" style="font-weight: bold;" flex="1" />-->
+                        </hbox>
+                        
+                        <hbox>
+                            
+                            <vbox id="preview_labels" hidden="true">
+                                
+                                <label id="preview_created" hidden="true" value="&created_label;" style="font-weight: bold;" />
+                                <label id="preview_modified" hidden="true" value="&modified_label;" style="font-weight: bold;" />
+                                <label id="preview_answered" hidden="true" value="&answered_label;" style="font-weight: bold;" />
+                                
+                            </vbox>
+                            
+                            <vbox id="preview_dates" hidden="true">
+                                
+                                <label id="created_label" hidden="true" flex="1" />
+                                <label id="modified_label" hidden="true" flex="1" />
+                                <label id="answered_label" hidden="true" flex="1" />
+                                
+                            </vbox>
+                            
+                        </hbox>
+                    
+                        <browser
+                         id="preview"
+                         style="margin: 0px; border: 1px solid gray"
+                         flex="1" />
+                        
+                    </vbox>
+                </vbox>
+    
+                <!--<browser id="browser" contextmenu="online_context_menu" type="content-primary" flex="1" />
+                
+                <browser id="search_browser" src="chrome://kneemail/content/search.html" type="content-primary" flex="1" />-->
+            </deck>
+
+        </vbox>
+        
+    </hbox>
+
+    <statusbar id="main_status_bar">
+        <statusbarpanel id="status_entries" crop="end" />
+        <statusbarpanel id="status_notifications" crop="end" flex="1" />
+        <progressmeter id="progress" mode="undetermined" hidden="true" />
+        <!--<toolbarbutton id="kneemail_online_status" tooltiptext="Kneemail Online Connection Status" image="chrome://kneemail/skin/images/kneemail_online_disconnected.png" command="cmd_kneemail_online" />-->
+        <toolbarbutton
+         id="powered_by_kneemail"
+         tooltiptext="Powered by Kneemail"
+         image="chrome://kneemail/skin/images/powered-by-kneemail.png"
+         oncommand="Utils.OpenURI('http://www.kneemailcentral.com');" />
+    </statusbar>
+
+</window>
