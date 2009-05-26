@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!--
+Copyright (c) 2007-2009, Greg Marine
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification,
+are permitted provided that the following conditions are met:
+
+    * Redistributions of source code must retain the above copyright notice,
+    this list of conditions and the following disclaimer.
+    * Redistributions in binary form must reproduce the above copyright notice,
+    this list of conditions and the following disclaimer in the documentation
+    and/or other materials provided with the distribution.
+    * Neither the name of Greg Marine nor the names of the contributors may be
+    used to endorse or promote products derived from this software without
+    specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA,
+OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.
+-->
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://kneemail/skin/css/prayer_plan.css" type="text/css"?>
+
+<!DOCTYPE dialog SYSTEM "chrome://kneemail/locale/prayer_plan.dtd">
+
+<dialog
+  id="prayer_plan"
+  title="&prayer_plan;"
+  width="800"
+  height="600"
+  orient="vertical"
+  buttons="accept"
+  onload="OnLoad();"
+  xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+    <script type="application/x-javascript" src="chrome://help/content/contextHelp.js"/>
+    <script type="application/x-javascript" src="chrome://kneemail/content/js/prayer_plan.js"/>
+
+    <description value="&desPsalm118_24;" />
+    
+    <hbox>
+        <toolbarbutton id="cmd_print" oncommand="OnCmdPrintPrayerPlan();" tooltiptext="&cmd_print;" class="cmd_print" />
+        <!--<toolbarbutton id="cmd_back" oncommand="OnCmdBack();" tooltiptext="&cmd_back;" class="cmd_back" disabled="true" hidden="true" />
+        <toolbarbutton id="cmd_forward" oncommand="OnCmdForward();" tooltiptext="&cmd_forward;" class="cmd_forward" disabled="true" hidden="true" />-->
+        <spacer flex="1" />
+        <toolbarbutton image="chrome://kneemail/skin/images/help.png" onclick="openHelp('prayer_plans', 'chrome://kneemail/locale/help/help.rdf');" />
+    </hbox>
+    
+    <richlistbox id="entries" ondblclick="OnEntriesDblClick(this.value);" flex="1" />
+    
+    <hbox>
+        <label id="entries_number" value="&entries_number;" />
+    </hbox>
+
+</dialog>

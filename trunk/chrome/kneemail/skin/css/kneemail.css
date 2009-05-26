@@ -1,0 +1,494 @@
+/*
+ Copyright (c) 2007-2009, Greg Marine
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification,
+are permitted provided that the following conditions are met:
+
+    * Redistributions of source code must retain the above copyright notice,
+    this list of conditions and the following disclaimer.
+    * Redistributions in binary form must reproduce the above copyright notice,
+    this list of conditions and the following disclaimer in the documentation
+    and/or other materials provided with the distribution.
+    * Neither the name of Greg Marine nor the names of the contributors may be
+    used to endorse or promote products derived from this software without
+    specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA,
+OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.
+*/
+
+.side_panel_button
+{
+    border-top: solid 1px blue;
+    margin: 0px;
+    padding: 3px 10px 5px 10px;
+    -moz-appearance: none;
+    height: 28px;
+    background-image: url("chrome://kneemail/skin/images/header.png");
+    background-repeat: repeat-x;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.35em;
+    font-weight: bold;
+    line-height: 1.2em;
+}
+
+.side_panel_button_selected
+{
+    border-top: solid 1px blue;
+    margin: 0px;
+    padding: 3px 10px 5px 10px;
+    -moz-appearance: none;
+    height: 28px;
+    background-image: url("chrome://kneemail/skin/images/header_selected.png");
+    background-repeat: repeat-x;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.35em;
+    font-weight: bold;
+    line-height: 1.2em;
+}
+
+.side_panel
+{
+    margin: 0px;
+    background-color: white !important;
+    background-image: url('chrome://kneemail/skin/images/entry_bg.png') !important;
+    background-repeat: repeat-x !important;
+}
+
+.cmd_toggle_sidebar_open
+{
+    list-style-image : url("chrome://kneemail/skin/images/open_sidebar.png");
+}
+
+.cmd_toggle_sidebar_close
+{
+    list-style-image : url("chrome://kneemail/skin/images/close_sidebar.png");
+}
+
+.cmd_quit
+{
+    list-style-image : url("chrome://kneemail/skin/images/quit.png");
+}
+
+.cmd_help
+{
+    list-style-image : url("chrome://kneemail/skin/images/help.png");
+}
+
+.tooltip
+{
+    margin: 0px;
+    padding: 5px;
+    background-color: white;
+    background-image: url('chrome://kneemail/skin/images/element_bg.png') !important;
+    background-repeat: repeat-x;
+}
+
+.tooltip_frame
+{
+    padding: 0px;
+    border: solid 1px blue;
+}
+
+.header
+{
+    height: 28px;
+    border-top: solid 1px blue;
+    background-image: url("chrome://kneemail/skin/images/header.png");
+    background-repeat: repeat-x;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.35em;
+    line-height: 1.2em;
+    padding: 3px 10px 5px 10px;
+    margin: 0px;
+}
+
+.folder_tree
+{
+    margin: 0px;
+    background-color: white;
+    background-image: url('chrome://kneemail/skin/images/element_bg.png') !important;
+    background-repeat: repeat-x;
+}
+
+.entry_tree
+{
+    margin: 0px;
+    background-color: white !important;
+    background-image: url('chrome://kneemail/skin/images/element_bg.png') !important;
+    background-repeat: repeat-x !important;
+}
+
+.throbber_stopped
+{
+    list-style-image : url("chrome://kneemail/skin/images/Throbber-stopped.png");
+}
+
+.throbber_throbbing
+{
+    list-style-image : url("chrome://kneemail/skin/images/Throbber-small.gif");
+}
+
+.cmd_empty_inactive_folder
+{
+    list-style-image : url("chrome://kneemail/skin/images/folder_delete.png");
+}
+
+.cmd_empty_inactive_folder[disabled="true"],
+.cmd_empty_inactive_folder[disabled="true"]:hover,
+.cmd_empty_inactive_folder[disabled="true"]:hover:active
+{
+    list-style-image : url("chrome://kneemail/skin/images/folder_delete_disabled.png");
+}
+
+.cmd_empty_deleted_folder
+{
+    list-style-image : url("chrome://kneemail/skin/images/folder_delete.png");
+}
+
+.cmd_empty_deleted_folder[disabled="true"],
+.cmd_empty_deleted_folder[disabled="true"]:hover,
+.cmd_empty_deleted_folder[disabled="true"]:hover:active
+{
+    list-style-image : url("chrome://kneemail/skin/images/folder_delete_disabled.png");
+}
+
+.cmd_new_folder
+{
+    list-style-image : url("chrome://kneemail/skin/images/folder_new.png");
+}
+
+.cmd_new_folder[disabled="true"],
+.cmd_new_folder[disabled="true"]:hover,
+.cmd_new_folder[disabled="true"]:hover:active
+{
+    list-style-image : url("chrome://kneemail/skin/images/folder_new_disabled.png");
+}
+
+.cmd_delete_folder
+{
+    list-style-image : url("chrome://kneemail/skin/images/folder_delete.png");
+}
+
+.cmd_delete_folder[disabled="true"],
+.cmd_delete_folder[disabled="true"]:hover,
+.cmd_delete_folder[disabled="true"]:hover:active
+{
+    list-style-image : url("chrome://kneemail/skin/images/folder_delete_disabled.png");
+}
+
+.cmd_edit_folder
+{
+    list-style-image : url("chrome://kneemail/skin/images/folder_edit.png");
+}
+
+.cmd_edit_folder[disabled="true"],
+.cmd_edit_folder[disabled="true"]:hover,
+.cmd_edit_folder[disabled="true"]:hover:active
+{
+    list-style-image : url("chrome://kneemail/skin/images/folder_edit_disabled.png");
+}
+
+.cmd_print_folder
+{
+    list-style-image : url("chrome://kneemail/skin/images/print.png");
+}
+
+.cmd_print_folder[disabled="true"],
+.cmd_print_folder[disabled="true"]:hover,
+.cmd_print_folder[disabled="true"]:hover:active
+{
+    list-style-image : url("chrome://kneemail/skin/images/print_disabled.png");
+}
+
+.cmd_new_entry
+{
+    list-style-image : url("chrome://kneemail/skin/images/entry_new.png");
+}
+
+.cmd_new_entry[disabled="true"],
+.cmd_new_entry[disabled="true"]:hover,
+.cmd_new_entry[disabled="true"]:hover:active
+{
+    list-style-image : url("chrome://kneemail/skin/images/entry_new_disabled.png");
+}
+
+.cmd_delete_entry
+{
+    list-style-image : url("chrome://kneemail/skin/images/entry_delete.png");
+}
+
+.cmd_delete_entry[disabled="true"],
+.cmd_delete_entry[disabled="true"]:hover,
+.cmd_delete_entry[disabled="true"]:hover:active
+{
+    list-style-image : url("chrome://kneemail/skin/images/entry_delete_disabled.png");
+}
+
+.cmd_edit_entry
+{
+    list-style-image : url("chrome://kneemail/skin/images/entry_edit.png");
+}
+
+.cmd_edit_entry[disabled="true"],
+.cmd_edit_entry[disabled="true"]:hover,
+.cmd_edit_entry[disabled="true"]:hover:active
+{
+    list-style-image : url("chrome://kneemail/skin/images/entry_edit_disabled.png");
+}
+
+.cmd_answered_entry
+{
+    list-style-image : url("chrome://kneemail/skin/images/entry_answered.png");
+}
+
+.cmd_answered_entry[disabled="true"],
+.cmd_answered_entry[disabled="true"]:hover,
+.cmd_answered_entry[disabled="true"]:hover:active
+{
+    list-style-image : url("chrome://kneemail/skin/images/entry_answered_disabled.png");
+}
+
+.cmd_edit_entry_prayer_plan
+{
+    list-style-image : url("chrome://kneemail/skin/images/entry_prayerplan.png");
+}
+
+.cmd_edit_entry_prayer_plan[disabled="true"],
+.cmd_edit_entry_prayer_plan[disabled="true"]:hover,
+.cmd_edit_entry_prayer_plan[disabled="true"]:hover:active
+{
+    list-style-image : url("chrome://kneemail/skin/images/entry_prayerplan_disabled.png");
+}
+
+.cmd_print_entry
+{
+    list-style-image : url("chrome://kneemail/skin/images/print.png");
+}
+
+.cmd_print_entry[disabled="true"],
+.cmd_print_entry[disabled="true"]:hover,
+.cmd_print_entry[disabled="true"]:hover:active
+{
+    list-style-image : url("chrome://kneemail/skin/images/print_disabled.png");
+}
+
+.database_menu
+{
+    list-style-image : url("chrome://kneemail/skin/images/database.png");
+}
+
+.cmd_backup
+{
+    list-style-image : url("chrome://kneemail/skin/images/backup_restore.png");
+}
+
+.cmd_restore
+{
+    list-style-image : url("chrome://kneemail/skin/images/backup_restore.png");
+}
+
+.cmd_compact
+{
+    list-style-image : url("chrome://kneemail/skin/images/database_compact.png");
+}
+
+.cmd_answers_praises
+{
+    list-style-image : url("chrome://kneemail/skin/images/entry_answered.png");
+}
+
+.cmd_search
+{
+    list-style-image : url("chrome://kneemail/skin/images/search.png");
+}
+
+.cmd_check_for_update
+{
+    list-style-image : url("chrome://kneemail/skin/images/update.png");
+}
+
+.cmd_add_ons
+{
+    list-style-image : url("chrome://kneemail/skin/images/add_ons.png");
+}
+
+.cmd_preferences
+{
+    list-style-image : url("chrome://kneemail/skin/images/preferences.png");
+}
+
+.cmd_report_bug
+{
+    list-style-image : url("chrome://kneemail/skin/images/bug.png");
+}
+
+.cmd_new_feature
+{
+    list-style-image : url("chrome://kneemail/skin/images/new_feature.png");
+}
+
+.cmd_contact
+{
+    list-style-image : url("chrome://kneemail/skin/images/contact.png");
+}
+
+.cmd_about
+{
+    list-style-image : url("chrome://kneemail/skin/images/about.png");
+}
+
+.cmd_backup_restore
+{
+    list-style-image : url("chrome://kneemail/skin/images/backup_restore.png");
+}
+
+.cmd_prayer_plan
+{
+    list-style-image : url("chrome://kneemail/skin/images/prayerplan.png");
+}
+
+.cmd_update
+{
+    list-style-image : url("chrome://kneemail/skin/images/update.png");
+}
+
+.cmd_back
+{
+    list-style-image : url("chrome://kneemail/skin/images/goback.png");
+}
+
+.cmd_back[disabled="true"],
+.cmd_back[disabled="true"]:hover,
+.cmd_back[disabled="true"]:hover:active
+{
+    list-style-image : url("chrome://kneemail/skin/images/goback_disabled.png");
+}
+
+.cmd_forward
+{
+    list-style-image : url("chrome://kneemail/skin/images/goforward.png");
+}
+
+.cmd_forward[disabled="true"],
+.cmd_forward[disabled="true"]:hover,
+.cmd_forward[disabled="true"]:hover:active
+{
+    list-style-image : url("chrome://kneemail/skin/images/goforward_disabled.png");
+}
+
+.cmd_reload
+{
+    list-style-image : url("chrome://kneemail/skin/images/reload.png");
+}
+
+.cmd_reload[disabled="true"],
+.cmd_reload[disabled="true"]:hover,
+.cmd_reload[disabled="true"]:hover:active
+{
+    list-style-image : url("chrome://kneemail/skin/images/reload_disabled.png");
+}
+
+.cmd_stop
+{
+    list-style-image : url("chrome://kneemail/skin/images/stop.png");
+}
+
+.cmd_stop[disabled="true"],
+.cmd_stop[disabled="true"]:hover,
+.cmd_stop[disabled="true"]:hover:active
+{
+    list-style-image : url("chrome://kneemail/skin/images/stop_disabled.png");
+}
+
+.cmd_home
+{
+    list-style-image : url("chrome://kneemail/skin/images/gohome.png");
+}
+
+.cmd_go
+{
+    list-style-image : url("chrome://kneemail/skin/images/go.png");
+}
+
+.cmd_default
+{
+    list-style-image : url("chrome://kneemail/skin/images/default_browser_go.png");
+}
+
+.cmd_online_set_home
+{
+    list-style-image : url("chrome://kneemail/skin/images/home.png");
+}
+
+.online_toolbar_bg
+{
+    list-style-image : url("chrome://kneemail/skin/images/biblegateway.png");
+}
+
+.online_toolbar_cm
+{
+    list-style-image : url("chrome://kneemail/skin/images/crossmap.png");
+}
+
+.online_toolbar_wc
+{
+    list-style-image : url("chrome://kneemail/skin/images/wikichristian.png");
+}
+
+.online_toolbar_gq
+{
+    list-style-image : url("chrome://kneemail/skin/images/gotquestions.png");
+}
+
+.online_toolbar_sf
+{
+    list-style-image : url("chrome://kneemail/skin/images/seekfind.png");
+}
+
+.online_toolbar_ag
+{
+    list-style-image : url("chrome://kneemail/skin/images/aig.png");
+}
+
+.cmd_onlinesearch
+{
+    list-style-image : url("chrome://kneemail/skin/images/onlinesearch.png");
+}
+
+.search_text_watermark
+{
+    color: #aaa;
+}
+
+.search_text_plain
+{
+    color: #000;
+}
+
+.journal_tab
+{
+    list-style-image : url("chrome://kneemail/skin/images/journal.png");
+}
+
+.online_tab
+{
+    list-style-image : url("chrome://kneemail/skin/images/kneemailonline.png");
+}
+
+.search_tab
+{
+    list-style-image : url("chrome://kneemail/skin/images/onlinesearch.png");
+}

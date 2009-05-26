@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!--
+Copyright (c) 2007-2009, Greg Marine
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification,
+are permitted provided that the following conditions are met:
+
+    * Redistributions of source code must retain the above copyright notice,
+    this list of conditions and the following disclaimer.
+    * Redistributions in binary form must reproduce the above copyright notice,
+    this list of conditions and the following disclaimer in the documentation
+    and/or other materials provided with the distribution.
+    * Neither the name of Greg Marine nor the names of the contributors may be
+    used to endorse or promote products derived from this software without
+    specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA,
+OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.
+-->
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+
+<!DOCTYPE dialog SYSTEM "chrome://kneemail/locale/search.dtd">
+
+<dialog
+ id="search"
+ title="&search;"
+ width="800"
+ height="600"
+ orient="vertical"
+ buttons="accept"
+ onkeypress="if (event.keyCode == 13) return false;"
+ xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+    <script type="application/x-javascript" src="chrome://help/content/contextHelp.js"/>
+    <script type="application/x-javascript" src="chrome://kneemail/content/js/search.js"/>
+   
+    <hbox>
+      <spacer flex="1" />
+      <toolbarbutton image="chrome://kneemail/skin/images/help.png" onclick="openHelp('search', 'chrome://kneemail/locale/help/help.rdf');" />
+    </hbox>
+
+    <label id="search_text_label" control="search_text" value="&search_text_label;" />
+
+    <hbox>
+
+        <textbox id="search_text" flex="1" oninput="OnCmdSearch();" />
+
+        <toolbarbutton
+         id="cmd_search"
+         image="chrome://kneemail/skin/images/search.png"
+         oncommand="OnCmdSearch(); return false;" />
+
+    </hbox>
+
+    <hbox>
+
+        <checkbox id="match_case" label="&match_case;" checked="false"/>
+
+        <checkbox id="search_subject" label="&search_subject;" checked="true"/>
+
+        <checkbox id="search_entry" label="&search_entry;" checked="true"/>
+
+        <checkbox id="search_answer" label="&search_answer;" checked="true"/>
+
+        <checkbox id="search_scripture" label="&search_scripture;" checked="true"/>
+
+        <radiogroup id="keyword_phrase" orient="horizontal">
+
+            <radio id="keyword" label="&keyword;" selected="true" />
+            <radio id="phrase" label="&phrase;" /> 
+
+        </radiogroup>
+
+    </hbox>
+
+    <tree
+     id="entry_tree"
+     hidecolumnpicker="true"
+     flex="1"
+     ondblclick="OnEntryTreeDblClick();">
+
+        <treecols>
+
+           <treecol
+            id="type"
+            src="chrome://kneemail/skin/images/entry.png"
+            class="treecol-image"
+            style="width: 24px;" />
+           
+           <treecol
+            id="folder"
+            label="&folder;"
+            flex="2"/>
+           
+           <treecol
+            id="subject"
+            label="&subject;"
+            flex="3" />
+           
+           <treecol
+            id="created"
+            label="&created;"
+            flex="1" />
+           
+        </treecols>
+
+        <treechildren id="entry_children" />
+        
+    </tree>
+        
+</dialog>

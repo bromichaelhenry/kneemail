@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Komodo Project File - DO NOT EDIT -->
+<project id="c48ff102-999c-48d2-ad7c-527ba1090cfd" kpf_version="4" name="Kneemail.kpf">
+<preference-set idref="c48ff102-999c-48d2-ad7c-527ba1090cfd">
+  <boolean id="import_live">1</boolean>
+</preference-set>
+</project>

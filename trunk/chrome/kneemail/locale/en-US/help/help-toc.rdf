@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<!DOCTYPE rdf:RDF SYSTEM "chrome://branding/locale/brand.dtd" >
+<rdf:RDF xmlns:nc="http://home.netscape.com/NC-rdf#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+
+<rdf:Description about="urn:root">
+  <nc:subheadings>
+    <rdf:Seq>
+      <rdf:li> <rdf:Description ID="welcome" nc:link="index.html" nc:name="Welcome to &brandFullName;" /> </rdf:li>
+      <rdf:li> <rdf:Description ID="view" nc:link="view/index.html" nc:name="View" /> </rdf:li>
+      <rdf:li> <rdf:Description ID="folders" nc:link="folders/index.html" nc:name="Folders" /> </rdf:li>
+      <rdf:li> <rdf:Description ID="entries" nc:link="entries/index.html" nc:name="Entries" /> </rdf:li>
+      <rdf:li> <rdf:Description ID="tools" nc:link="tools/index.html" nc:name="Tools" /> </rdf:li>
+    </rdf:Seq>
+  </nc:subheadings>
+</rdf:Description>
+
+<rdf:Description about="#welcome">
+  <nc:subheadings>
+    <rdf:Seq>
+      <rdf:li> <rdf:Description ID="shortcuts" nc:link="application_shortcuts.html" nc:name="Application Shortcuts" /> </rdf:li>
+      <rdf:li> <rdf:Description ID="license" nc:link="license.html" nc:name="License" /> </rdf:li>
+    </rdf:Seq>
+  </nc:subheadings>
+</rdf:Description>
+
+<rdf:Description about="#view">
+  <nc:subheadings>
+    <rdf:Seq>
+      <rdf:li> <rdf:Description ID="open_close_sidebar" nc:link="view/open_close_sidebar.html" nc:name="Open/Close Sidebar" /> </rdf:li>
+    </rdf:Seq>
+  </nc:subheadings>
+</rdf:Description>
+
+<rdf:Description about="#folders">
+  <nc:subheadings>
+    <rdf:Seq>
+      <rdf:li> <rdf:Description ID="new_folder" nc:link="folders/new_folder.html" nc:name="New Folder" /> </rdf:li>
+      <rdf:li> <rdf:Description ID="delete_folder" nc:link="folders/delete_folder.html" nc:name="Delete Folder" /> </rdf:li>
+      <rdf:li> <rdf:Description ID="edit_folder" nc:link="folders/edit_folder.html" nc:name="Edit Folder" /> </rdf:li>
+    </rdf:Seq>
+  </nc:subheadings>
+</rdf:Description>
+
+<rdf:Description about="#entries">
+  <nc:subheadings>
+    <rdf:Seq>
+      <rdf:li> <rdf:Description ID="new_entry" nc:link="entries/new_entry.html" nc:name="New Entry" /> </rdf:li>
+      <rdf:li> <rdf:Description ID="delete_entry" nc:link="entries/delete_entry.html" nc:name="Delete Entry" /> </rdf:li>
+      <rdf:li> <rdf:Description ID="edit_entry" nc:link="entries/edit_entry.html" nc:name="Edit Entry" /> </rdf:li>
+      <rdf:li> <rdf:Description ID="answered_entry" nc:link="entries/answered_entry.html" nc:name="Answered Entry" /> </rdf:li>
+      <rdf:li> <rdf:Description ID="edit_prayerplan_entry" nc:link="entries/edit_prayerplan_entry.html" nc:name="Prayer Plan Settings" /> </rdf:li>
+      <rdf:li> <rdf:Description ID="prayer_plans" nc:link="entries/prayer_plans.html" nc:name="Prayer Plans" /> </rdf:li>
+      <rdf:li> <rdf:Description ID="search" nc:link="entries/search.html" nc:name="Search" /> </rdf:li>
+    </rdf:Seq>
+  </nc:subheadings>
+</rdf:Description>
+
+<rdf:Description about="#tools">
+  <nc:subheadings>
+    <rdf:Seq>
+      <rdf:li> <rdf:Description ID="database" nc:link="tools/database.html" nc:name="Database" /> </rdf:li>
+      <rdf:li> <rdf:Description ID="answers_praises" nc:link="tools/answers_praises.html" nc:name="Answers/Praises Dialog" /> </rdf:li>
+      <rdf:li> <rdf:Description ID="updates" nc:link="tools/updates.html" nc:name="Check for Update" /> </rdf:li>
+      <rdf:li> <rdf:Description ID="preferences" nc:link="tools/preferences.html" nc:name="Preferences" /> </rdf:li>
+    </rdf:Seq>
+  </nc:subheadings>
+</rdf:Description>
+
+</rdf:RDF>
