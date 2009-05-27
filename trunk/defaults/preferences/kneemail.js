@@ -77,7 +77,7 @@ pref("extensions.getMoreExtensionsURL", "http://addons.kneemailcentral.com/");
 pref("general.skins.selectedSkin", "classic/1.0");
 //
 // pref("general.useragent.override", "Kneemail 2.0.0 (KneemailCentral.com; U; en-US; rv:1.9.0.4) Gecko/2008111310 Kneemail/20081230");
-pref("general.useragent.extra.brand", "KneemailCentral.com/1.0.0/200905260");
+pref("general.useragent.extra.brand", "KneemailCentral.com/1.0.0/200905270");
 //
 pref("kneemail.backup.shutdown", false);
 pref("kneemail.entries.defaulttype", 0);
